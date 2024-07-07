@@ -1,2 +1,4 @@
 # ML_CPP
-Hands-On-Machine-Learning-with-C++
+
+## pre
+- CMake: https://www.bookstack.cn/read/CMake-Cookbook/README.md
