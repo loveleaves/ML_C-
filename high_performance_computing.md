@@ -3,6 +3,8 @@
 ## roadmap
 - https://www.zhihu.com/question/33576416
 - https://heptagonhust.github.io/HPC-roadmap/
+- HPC指南：https://github.com/l0ngc/hpc-learning
+- 高等数值分析（高性能计算，并行计算）：https://math.ecnu.edu.cn/~jypan/Teaching/ParaComp/
 
 ![编译优化](./imgs/1.png)
 
@@ -23,6 +25,32 @@
 - 共享存储式并行：OpenMP、OpenCL、OpenACC
 ![parallel](./imgs/parallel_program_1.png)
 
+### SIMD（Single Instruction Multi-Data）
+- SIMD是CPU实现DLP（Data Level Parallelism）的关键
+- SSE指令集（Streaming SIMD Extensions系列），使用XMM寄存器
+- AVX指令集（Advanced Vector Extensions系列），使用YMM寄存器，相比SSE扩充浮点
+- 优点：更高速的计算方法
+- 缺点：更高的开发复杂度，专用的CPU组件
+
+### SIMT（Single Instruction Multi-Threads）
+#### CUDA/ROCM
+- CUDA：NIDIA
+- ROCM：AMD
+#### OpenMP（Open Multi-Processing）
+- 高性能计算入门：OpenMP并行编程技术（一）:https://www.bilibili.com/video/BV1ss4y1K7q1?p=1
+- OpenMP模式：fork-join，是针对CPU的并行编程模型
+- 硬件内存模型：
+  - CPU在主存上有L1、L2、L3多级缓存
+  - L3为多核共有，但L1和L2为每个核心私有，所以存在缓存一致性问题（False Sharing）
+
+#### OpenCL（Open Computing Language）
+- 跨平台
+- 基于C/C++语言
+
+#### OpenACC
+- 编译器：pgcc
+- 针对GPU，OpenMP模型在GPU上的扩展
+
 ### MPI
 MPI，Message Passing Interface，消息传递接口，主要用于进程间的消息传递（或数据传递）
 - 是一种库描述，不是语言
@@ -32,9 +60,6 @@ MPI，Message Passing Interface，消息传递接口，主要用于进程间的�
 - MPI四类通讯模式
 - 逻辑进程排列：MPI虚拟进程拓扑
 
-### OpenMP
-- 高性能计算入门：OpenMP并行编程技术（一）:https://www.bilibili.com/video/BV1ss4y1K7q1?p=1
-
 ## 性能分析
 ### 程序流程分析
 - 静态分析：即对代码进行数据对象、函数接口封装和调用分析，工具understand
@@ -42,6 +67,4 @@ MPI，Message Passing Interface，消息传递接口，主要用于进程间的�
 
 ## 参考
 - C进阶：https://www.bookstack.cn/read/whyilearnc/README.md
-- 高等数值分析（高性能计算，并行计算）：https://math.ecnu.edu.cn/~jypan/Teaching/ParaComp/
 - 中科大超算中心资料手册：https://scc.ustc.edu.cn/zlsc/
-- HPC指南：https://github.com/l0ngc/hpc-learning
