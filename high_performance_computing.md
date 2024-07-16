@@ -1,5 +1,11 @@
 # 高性能计算
 
+## 概念
+并行计算三要素
+- 硬件：并行计算机/体系结构
+- 算法：并行算法设计/应用问题的并行度
+- 软件：并行编程环境/Linux/Fortran/C/C++/MPI/OpenMP
+
 ## roadmap
 - https://www.zhihu.com/question/33576416
 - https://heptagonhust.github.io/HPC-roadmap/
@@ -38,7 +44,7 @@
 - ROCM：AMD
 #### OpenMP（Open Multi-Processing）
 - 高性能计算入门：OpenMP并行编程技术（一）:https://www.bilibili.com/video/BV1ss4y1K7q1?p=1
-- OpenMP模式：fork-join，是针对CPU的并行编程模型
+- OpenMP模式：fork-join，是针对CPU的并行编程模型，基于**线程**
 - 硬件内存模型：
   - CPU在主存上有L1、L2、L3多级缓存
   - L3为多核共有，但L1和L2为每个核心私有，所以存在缓存一致性问题（False Sharing）
@@ -52,7 +58,7 @@
 - 针对GPU，OpenMP模型在GPU上的扩展
 
 ### MPI
-MPI，Message Passing Interface，消息传递接口，主要用于进程间的消息传递（或数据传递）
+MPI，Message Passing Interface，消息传递接口，主要用于**进程**间的消息传递（或数据传递）
 - 是一种库描述，不是语言
 - 是一种标准或规范，不是具体的实现（如Intel MPI，OpenMPI等）
 - 是一种消息传递编程模型，并成为这种编程模型的代表和事实上的标准。
