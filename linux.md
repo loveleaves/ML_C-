@@ -11,8 +11,23 @@ Linux 系统结构大致分为：内核、Shell、文件系统、应用程序
 ## 基础命令
 ### 文件与权限
 ```shell
-ls -l
+# find查找，xargs给命令传递参数(针对不能接收管道输出的命令)，grep查找字符串
+find /bin/ -name "sh"|xargs ls -l
+# 注意shell执行区别：sh（执行失败则停止，类似execve），bash（单个命令失败继续执行后续，类似fork）
+ls /bin|grep -E "*sh"
+# sed依照脚本的指令来处理、编辑文本文件，查找指定内容；nl按行格式化输出
+nl a.c|sed -n '/func/p' 
+# 查找可执行命令位置(which从PATH中找)，查看指定命令类型（type）,配置环境变量export（本shell周期，非永久）
+which python
+export PATH=$PATH:/home/bin
+type echo # echo is a shell builtin
+# 命令执行优先级，及对应命令、例子
+先    alias --> function --> builtin --> program   后
+  alias/unalias  -->  function/unset -->  builtin
+alias test="ls -l"  --> function test1 { echo "hello"; } --> builtin test1
+# 权限管理，配置文件/etc/passwd
 chmod [who] [+|-|=] [mode] file/folder
+# 软链接
 ln
 ```
 ![ls](./imgs/linux_2.png)
@@ -23,7 +38,10 @@ ps
 # ctrl+z挂起，ctrl+c终止
 # 前后台进程命令
 jobs, bg, fg, &
-chmod [who] [+|-|=] [mode] file/folder
+# 监控用户空间进程和内核的交互
+strace -tt -T -v -f -e trace=file -o strace.log -s 1024 -p 23489
+# 显示进程的关系
+pstree -apnh
 ```
 
 ## 内核级
@@ -63,6 +81,7 @@ GCC（GNU C Compiler）是C编译工具，GDB是Linux下强大的调试工具。
 - objcopy：将一种对象文件翻译成另一种格式，譬如将.bin转换成.elf、或者将.elf转换成.bin等。
 - objdump：主要的作用是反汇编。
 - readelf：显示有关ELF文件的信息
+- nm: 列出库文件（.a、.lib）、目标文件（*.o）、可执行文件的符号表
 - size：列出可执行文件每个部分的尺寸和总尺寸，代码段、数据段、总大小等
 #### C运行库
 同上glibc
