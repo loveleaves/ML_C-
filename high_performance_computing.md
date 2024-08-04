@@ -44,6 +44,10 @@
 - ROCM：AMD
 #### OpenMP（Open Multi-Processing）
 - 高性能计算入门：OpenMP并行编程技术（一）:https://www.bilibili.com/video/BV1ss4y1K7q1?p=1
+- OpenMP编程三要素：
+  - 编译指导（Compiler Directive）：包含并行域指令、工作共享指令、同步指令、数据环境
+  - 运行库函数（Runtime Library Routines）
+  - 环境变量（Environment Variables）
 - OpenMP模式：fork-join，是针对CPU的并行编程模型，基于**线程**
 - 硬件内存模型：
   - CPU在主存上有L1、L2、L3多级缓存
