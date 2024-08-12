@@ -7,6 +7,9 @@
 - 4、并行编程-2：SIMD（SSE、AVX、NEON），SIMT
 - 5、并行编程-3：SIMD+SIMT，如avx+std::async等
 
+#### 案例
+- [模型部署优化](./deployment/README.md)
+
 ### AI 移动端优化
 
 ### 深度学习编译器
