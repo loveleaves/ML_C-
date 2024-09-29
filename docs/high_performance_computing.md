@@ -12,7 +12,7 @@
 - HPC指南：https://github.com/l0ngc/hpc-learning
 - 高等数值分析（高性能计算，并行计算）：https://math.ecnu.edu.cn/~jypan/Teaching/ParaComp/
 
-![编译优化](./imgs/1.png)
+![编码优化](./imgs/1.png)
 
 ## 代码优化
 - 分支预测：https://blog.csdn.net/yaojingqingcheng/article/details/120913601
